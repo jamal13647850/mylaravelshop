@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/admin/panel', 'Admin\panelController@index');
+
+Route::namespace('Admin')->prefix('admin')->group(function (){
+    $this->get('/panel' , 'PanelController@index');
+
+    $this->resource('articles' , 'ArticleController');
+});
