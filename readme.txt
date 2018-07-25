@@ -19,3 +19,12 @@ php artisan rout:list
 
 php artisan vendor:publish --provider="Cviebrock\EloquentSluggable\ServiceProvider"
 
+
+php artisan migrate:refresh
+
+php artisan make:request ArticleRequest
+
+php artisan make:controller Admin/AdminController
+
+composer require intervention/image
+

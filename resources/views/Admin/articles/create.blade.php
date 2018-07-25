@@ -7,7 +7,7 @@
         </div>
         <form class="form-horizontal" action="{{ route('articles.store') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
-
+            @include('Admin.section.errors')
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="title" class="control-label">عنوان مقاله</label>
@@ -17,19 +17,19 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="description" class="control-label">توضیحات کوتاه</label>
-                    <input type="text" class="form-control" name="description" id="description" placeholder="توضیحات را وارد کنید" value="{{ old('description') }}">
+                    <textarea rows="5" class="form-control" name="description" id="description" placeholder="توضیحات را وارد کنید">{{ old('description') }}</textarea>
                 </div>
             </div>
             <div class="form-group">
               <div class="col-sm-12">
                   <label for="body" class="control-label">متن</label>
-                  <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید"></textarea>
+                  <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید">{{ old('body') }}</textarea>
               </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-6">
-                    <label for="imageUrl" class="control-label">تصویر مقاله</label>
-                    <input type="file" class="form-control" name="imageUrl" id="imageUrl" placeholder="تصویر مقاله را وارد کنید" value="{{ old('imageUrl') }}">
+                    <label for="images" class="control-label">تصویر مقاله</label>
+                    <input type="file" class="form-control" name="images" id="images" placeholder="تصویر مقاله را وارد کنید" value="{{ old('imageUrl') }}">
                 </div>
                 <div class="col-sm-6">
                     <label for="tags" class="control-label">تگ ها</label>
