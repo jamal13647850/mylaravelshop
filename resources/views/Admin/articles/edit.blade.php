@@ -1,17 +1,13 @@
 @extends('Admin.master')
-
 @section('script')
     <script src="/ckeditor/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('body',{
+        CKEDITOR.replace('body' ,{
             filebrowserUploadUrl : '/admin/panel/upload-image',
-            filebrowserImageUploadUrl : '/admin/panel/upload-image',
-        })
+            filebrowserImageUploadUrl :  '/admin/panel/upload-image'
+        });
     </script>
-
-
 @endsection
-
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="page-header head-section">
@@ -67,7 +63,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <button type="submit" class="btn btn-danger">ارسال</button>
+                    <button type="submit" class="btn btn-danger">ویرایش</button>
                 </div>
             </div>
         </form>
