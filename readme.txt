@@ -20,3 +20,8 @@ composer require intervention/image
 
 php artisan make:controller Admin/CourseController --model=Course
 php artisan make:request CourseRequest
+
+
+php artisan make:controller Admin/EpisodeController -r
+php artisan make:request EpisodeRequest
+php artisan migrate:refresh

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Course;
 use App\Http\Requests\CourseRequest;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,6 +39,15 @@ class CourseController extends AdminController
      */
     public function store(CourseRequest $request)
     {
+        User::create([
+            'level' => 'admin',
+            'name' => 'jamal',
+            'email' => 'jamal13647850@gmail.com',
+            'password' => bcrypt('123456')
+        ]);
+
+        auth()->loginUsingId(1);
+
         $imagesUrl = $this->uploadImages($request->file('images'));
         auth()->user()->course()->create(array_merge($request->all() , [ 'images' => $imagesUrl]));
 
@@ -75,6 +85,21 @@ class CourseController extends AdminController
      */
     public function update(Request $request, Course $course)
     {
+        $file = $request->file('images');
+        $inputs = $request->all();
+
+        if($file) {
+            $inputs['images'] = $this->uploadImages($request->file('images'));
+        } else {
+            $inputs['images'] = $course->images;
+            $inputs['images']['thumb'] = $inputs['imagesThumb'];
+
+        }
+
+        unset($inputs['imagesThumb']);
+        $course->update($inputs);
+
+        return redirect(route('articles.index'));
     }
 
     /**

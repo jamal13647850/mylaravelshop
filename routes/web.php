@@ -11,12 +11,12 @@
 |
 */
 // roocket.ir/admin
-
-Route::namespace('Admin')->prefix('admin')->group(function (){
+// namespace('Admin')->prefix('admin')
+Route::group(['namespace' => 'Admin' , 'prefix' => 'admin'],function (){
     $this->get('/panel' , 'PanelController@index');
     $this->post('/panel/upload-image' , 'PanelController@uploadImageSubject');
     $this->resource('articles' , 'ArticleController');
     $this->resource('courses' , 'CourseController');
+    $this->resource('episodes' , 'EpisodeController');
 
 });
-//Route::resource('article')

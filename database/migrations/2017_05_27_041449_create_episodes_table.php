@@ -17,14 +17,12 @@ class CreateEpisodesTable extends Migration
             $table->increments('id');
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->string('type',10);
+            $table->string('type', 10);
             $table->string('title');
-            $table->string('slug');
             $table->text('description');
-            $table->text('body');
             $table->string('videoUrl');
             $table->string('tags');
-            $table->string('time',15)->default('00:00:00');
+            $table->string('time', 15)->default('00:00:00');
             $table->integer('number');
             $table->integer('viewCount')->default(0);
             $table->integer('commentCount')->default(0);

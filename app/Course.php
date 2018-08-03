@@ -34,6 +34,10 @@ class Course extends Model
         $this->attributes['body'] = $value;
     }
 
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class);
+    }
 
     public function path()
     {
