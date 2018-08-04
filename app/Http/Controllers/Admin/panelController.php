@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Permission;
+use App\Role;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +12,30 @@ class PanelController extends Controller
 {
     public function index()
     {
+        /*Role::create([
+            'name' => 'manager',
+            'label' => 'مدیر اصلی سایت'
+        ]);*/
+
+        /*auth()->loginUsingId(1);*/
+
+        /*return auth()->user()->roles()->sync(1);*/
+        /*return auth()->user()->roles()->get();*/
+
+        /*Permission::create([
+            'name' => 'edit-article',
+            'label' => 'ویرایش مقالات'
+        ]);
+        Permission::create([
+            'name' => 'show-comment',
+            'label' => 'مشاهده بخشهای نظرات'
+        ]);*/
+
+        //return Role::whereName('manager')->first()->permissions()->sync([1,2]);
+
+
+        //dd(auth()->user()->hasRole(Permission::whereName('show-comment')->first()->roles));
+
         return view('Admin.panel');
     }
 

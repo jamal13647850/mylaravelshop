@@ -25,3 +25,9 @@ php artisan make:request CourseRequest
 php artisan make:controller Admin/EpisodeController -r
 php artisan make:request EpisodeRequest
 php artisan migrate:refresh
+
+
+php artisan make:model Role -m
+php artisan make:model Permission -m
+php artisan migrate
+
